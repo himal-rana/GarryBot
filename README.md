@@ -96,3 +96,32 @@ The robot software is organized into independent modules. Each module has a sing
                 |   DC Motors      |
                 +------------------+
 ```
+---
+
+# 📂 Project Structure
+
+```text
+GarryBot/
+├── include/               # Header files
+│   ├── config.h
+│   ├── filter.h
+│   ├── imu.h
+│   ├── motor.h
+│   └── pid.h
+│
+├── src/                   # Source files
+│   ├── main.cpp
+│   ├── filter.cpp
+│   ├── imu.cpp
+│   ├── motor.cpp
+│   └── pid.cpp
+│
+├── lib/                   # External libraries (if any)
+├── test/                  # Unit tests
+├── images/                # Images and GIFs
+├── docs/                  # Documentation
+│
+├── platformio.ini         # PlatformIO configuration
+├── README.md
+└── .gitignore
+```
