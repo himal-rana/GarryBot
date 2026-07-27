@@ -61,3 +61,38 @@ Rather than relying on third-party balancing libraries, every major subsystem—
 | Buck Converter | Regulates voltage for the Arduino |
 
 ---
+# 🏗️ Software Architecture
+
+The robot software is organized into independent modules. Each module has a single responsibility, making the project easier to understand, debug, and extend.
+
+```text
+                +------------------+
+                |    MPU6050 IMU   |
+                +--------+---------+
+                         |
+                         v
+                +------------------+
+                |    IMU Driver    |
+                +--------+---------+
+                         |
+                         v
+                +------------------+
+                | Complementary    |
+                |     Filter       |
+                +--------+---------+
+                         |
+                         v
+                +------------------+
+                | PID Controller   |
+                +--------+---------+
+                         |
+                         v
+                +------------------+
+                |  Motor Driver    |
+                +--------+---------+
+                         |
+                         v
+                +------------------+
+                |   DC Motors      |
+                +------------------+
+```
