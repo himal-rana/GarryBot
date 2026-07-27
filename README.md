@@ -1,7 +1,6 @@
 # 🤖 GarryBot
-
 <p align="center">
-  <img src="images/garrybot.jpg" width="450">
+  <img src="images/garrybot_demo.gif" alt="GarryBot Demo" width="400">
 </p>
 
 > A self-balancing two-wheeled robot designed and programmed from scratch using Arduino Uno, MPU6050, and PlatformIO.
