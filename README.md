@@ -5,7 +5,7 @@
 </p>
 
 <p align="center">
-  <img src="images/garrybot.jpg" alt="GarryBot" width="450">
+  <img src="images/garrybot.JPG" alt="GarryBot" width="450">
 </p>
 
 > **A self-balancing two-wheeled robot designed and programmed from scratch using Arduino Uno, MPU6050, and PlatformIO.**
@@ -47,3 +47,17 @@ Rather than relying on third-party balancing libraries, every major subsystem—
 - ✅ Emergency stop
 - ✅ Modular C++ architecture
 - ✅ Stable self-balancing
+---
+
+# 🛠 Hardware
+
+| Component | Description |
+|-----------|-------------|
+| Arduino Uno | Main microcontroller |
+| MPU6050 | 6-axis IMU (Accelerometer + Gyroscope) |
+| L298N | Dual H-Bridge motor driver |
+| TT DC Motors | Drive motors |
+| 18650 Battery Pack | Power source |
+| Buck Converter | Regulates voltage for the Arduino |
+
+---
