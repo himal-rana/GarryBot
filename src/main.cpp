@@ -10,9 +10,9 @@ ComplementaryFilter pitchFilter;
 Motor motor;
 
 PID pid(
-    14.0f,  // Kp
+    6.0f,  // Kp
     0.0f,   // Ki  
-    0.35f    // Kd
+    0.10f    // Kd
 );
 
 unsigned long lastTime = 0;

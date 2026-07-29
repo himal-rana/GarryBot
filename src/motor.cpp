@@ -29,15 +29,29 @@ void Motor::begin()
 
 void Motor::drive(int speed)
 {
-    // Apply calibration offsets when removing the dead zone
-    // if (speed > 0)
-    //     speed += 30;
-    // else if (speed < 0)
-    //     speed -= 30;
+    const int DEADZONE = 40;   // Adjust this value experimentally
+
+    // Limit input
     speed = constrain(speed, -255, 255);
-    //PWM for left and right motors
-    int ENA_PWM  = speed * LEFT_GAIN;
-    int ENB_PWM = speed * RIGHT_GAIN;
+
+    // Deadzone compensation
+    if (speed > 0)
+    {
+        speed += DEADZONE;
+    }
+    else if (speed < 0)
+    {
+        speed -= DEADZONE;
+    }
+
+    // Prevent exceeding PWM limit
+    speed = constrain(speed, -255, 255);
+
+
+    // Apply motor calibration offsets
+    int ENA_PWM = abs(speed * LEFT_GAIN);
+    int ENB_PWM = abs(speed * RIGHT_GAIN);
+
 
     if (speed > 0)
     {
@@ -49,22 +63,19 @@ void Motor::drive(int speed)
         digitalWrite(IN4, LOW);
 
         analogWrite(ENA, ENA_PWM);
-        analogWrite(ENB, ENB_PWM
-);
+        analogWrite(ENB, ENB_PWM);
     }
     else if (speed < 0)
     {
         // Reverse
-        speed = -speed;
-
         digitalWrite(IN1, LOW);
         digitalWrite(IN2, HIGH);
 
         digitalWrite(IN3, LOW);
         digitalWrite(IN4, HIGH);
 
-        analogWrite(ENA, speed);
-        analogWrite(ENB, speed);
+        analogWrite(ENA, ENA_PWM);
+        analogWrite(ENB, ENB_PWM);
     }
     else
     {
